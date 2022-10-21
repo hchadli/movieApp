@@ -39,7 +39,7 @@ namespace Application.Common.Movies.Commands
 
 
 
-            return new MovieDto.MovieCreate { Title = test.Title, Description = test.Description, Genres = test.Genres, ReleaseDate = request.ReleaseDate };
+            return new MovieDto.MovieCreate { Title = test.Title, Description = test.Description, Genres = test.Genres };
         }
     }
 }

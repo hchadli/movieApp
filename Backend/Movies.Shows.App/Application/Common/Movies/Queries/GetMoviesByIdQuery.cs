@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Common.Movies.Queries
 {
-    public record GetMoviesByIdQuery(int id) : IRequest<IEnumerable<MovieDto.MovieDetail>>;
+    public record GetMoviesByIdQuery(int id) : IRequest<MovieDto.MovieDetail>;
 
 
 
-    public class GetMoviesByIdQueryHandler : IRequestHandler<GetMoviesByIdQuery, IEnumerable<MovieDto.MovieDetail>>
+    public class GetMoviesByIdQueryHandler : IRequestHandler<GetMoviesByIdQuery, MovieDto.MovieDetail>
     {
 
         private readonly IMovieShowsDbContext _dbContext;
@@ -18,21 +18,18 @@ namespace Application.Common.Movies.Queries
             _dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<MovieDto.MovieDetail>> Handle(GetMoviesByIdQuery request, CancellationToken cancellationToken)
+        public async Task<MovieDto.MovieDetail> Handle(GetMoviesByIdQuery request, CancellationToken cancellationToken)
         {
             return await _dbContext.Movies
-               .Select(a => new MovieDto.MovieDetail()
-               {
-                   Id = a.Id,
-                   Title = a.Title,
-                   PictureUrl = a.PictureUrl,
-                   Genres = a.Genres,
-                   Actors = a.Actors,
-                   Description = a.Description
-
-
-
-               }).ToListAsync(cancellationToken: cancellationToken);
+                .Select(a => new MovieDto.MovieDetail()
+                {
+                    Id = a.Id,
+                    Title = a.Title,
+                    PictureUrl = a.PictureUrl,
+                    Genres = a.Genres,
+                    Actors = a.Actors,
+                    Description = a.Description
+                }).FirstAsync(default);
         }
     }
 }

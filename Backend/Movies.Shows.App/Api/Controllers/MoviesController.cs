@@ -21,19 +21,17 @@ namespace Api.Controllers
         {
             return await _mediator.Send(new GetMoviesQuery());
         }
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<MovieDto.MovieDetail>> Get([FromRoute] int id)
-        {
-            var Movies = _mediator.Send(new GetMoviesByIdQuery(id)
-            );
-            return Ok(Movies);
 
-        }
-        [HttpPost]
-        public async Task<ActionResult<MovieDto.MovieCreate>> CreateMovie([FromBody] CreateMovieCommand movieCreateCommand)
+        [HttpGet("{id:int}")]
+        public async Task<MovieDto.MovieDetail> Get([FromRoute] int id)
         {
-            var movie = _mediator.Send(movieCreateCommand);
-            return Ok(movie);
+            return await _mediator.Send(new GetMoviesByIdQuery(id));
+        }
+
+        [HttpPost]
+        public async Task<MovieDto.MovieCreate> CreateMovie([FromBody] CreateMovieCommand movieCreateCommand)
+        {
+            return await _mediator.Send(movieCreateCommand);
         }
 
         //return await todoService.GetTodosAsync(status);
