@@ -18,11 +18,9 @@ namespace Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MovieDto.Index>>> GetMovies()
         {
-            var Movies = _mediator.Send(new GetMoviesQuery
-            {
-
-            });
-            return Ok(dtos);
+            var Movies = _mediator.Send(new GetMoviesQuery()
+            );
+            return Ok();
         }
 
         //return await todoService.GetTodosAsync(status);
