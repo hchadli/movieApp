@@ -5,7 +5,7 @@ namespace Application.Common.Movies.Dtos
 {
     public class MovieDto
     {
-        public class Index
+        public class MovieIndex
         {
             public int Id { get; set; }
             public string Title { get; set; }
@@ -15,7 +15,7 @@ namespace Application.Common.Movies.Dtos
             public ICollection<Actor> Actors { get; set; }
 
         }
-        public class Detail : Index
+        public class Detail : MovieIndex
         {
 
         }

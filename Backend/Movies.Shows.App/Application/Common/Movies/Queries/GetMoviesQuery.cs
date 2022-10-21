@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Common.Movies.Queries
 {
-    public record GetMoviesQuery : IRequest<IEnumerable<MovieDto.Index>>;
+    public record GetMoviesQuery : IRequest<IEnumerable<MovieDto.MovieIndex>>;
 
 
 
-    public class GetMoviesQueryHandler : IRequestHandler<GetMoviesQuery, IEnumerable<MovieDto.Index>>
+    public class GetMoviesQueryHandler : IRequestHandler<GetMoviesQuery, IEnumerable<MovieDto.MovieIndex>>
     {
 
         private readonly IMovieShowsDbContext _dbContext;
@@ -18,10 +18,10 @@ namespace Application.Common.Movies.Queries
             _dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<MovieDto.Index>> Handle(GetMoviesQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<MovieDto.MovieIndex>> Handle(GetMoviesQuery request, CancellationToken cancellationToken)
         {
             return await _dbContext.Movies
-               .Select(a => new MovieDto.Index()
+               .Select(a => new MovieDto.MovieIndex()
                {
                    Id = a.Id,
                    Title = a.Title,

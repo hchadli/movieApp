@@ -19,7 +19,7 @@ namespace Api.Controllers
 
 
         [HttpGet]
-        public async Task<IEnumerable<ActorDto.Index>> GetActors()
+        public async Task<IEnumerable<ActorDto.ActorIndex>> GetActors()
         {
             return await _mediator.Send(new GetActorsQuery());
         }

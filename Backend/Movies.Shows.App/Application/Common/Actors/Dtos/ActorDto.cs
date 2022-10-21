@@ -5,7 +5,7 @@ namespace Api.Dto
 {
     public class ActorDto
     {
-        public class Index
+        public class ActorIndex
         {
             public int Id { get; set; }
             public string FirstName { get; set; }
@@ -14,9 +14,9 @@ namespace Api.Dto
 
 
         }
-        public class Detail : Index
+        public class Detail : ActorIndex
         {
-            public ICollection<MovieDto.Index> Movies { get; set; }
+            public ICollection<MovieDto.MovieIndex> Movies { get; set; }
             public ICollection<TvShowDto.Index> TvShows { get; set; }
         }
 

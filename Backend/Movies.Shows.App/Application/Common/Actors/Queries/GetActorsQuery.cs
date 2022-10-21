@@ -10,10 +10,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Common.Actors.Queries
 {
-    public record GetActorsQuery : IRequest<IEnumerable<ActorDto.Index>>;
+    public record GetActorsQuery : IRequest<IEnumerable<ActorDto.ActorIndex>>;
 
 
-    public class GetActorsQueryHandler : IRequestHandler<GetActorsQuery, IEnumerable<ActorDto.Index>>
+    public class GetActorsQueryHandler : IRequestHandler<GetActorsQuery, IEnumerable<ActorDto.ActorIndex>>
     {
         private readonly IMovieShowsDbContext _dbContext;
         public GetActorsQueryHandler(IMovieShowsDbContext dbContext)
@@ -21,10 +21,10 @@ namespace Application.Common.Actors.Queries
             _dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<ActorDto.Index>> Handle(GetActorsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ActorDto.ActorIndex>> Handle(GetActorsQuery request, CancellationToken cancellationToken)
         {
             return await _dbContext.Actors
-                .Select(a => new ActorDto.Index()
+                .Select(a => new ActorDto.ActorIndex()
                 {
                     Id = a.Id,
                     FirstName = a.FirstName,

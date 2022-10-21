@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.Common.Interfaces;
 using Infrastructure.Persistence;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,9 @@ namespace Infrastructure
             {
                 options.UseSqlite(connection);
             });
+
+            services.AddScoped<IMovieShowsDbContext>(collection => collection.GetRequiredService<MovieShowsDbContext>());
+
             return services;
         }
     }
