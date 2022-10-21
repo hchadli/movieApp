@@ -2,11 +2,8 @@
 
 namespace Api.Controllers
 {
-    public class ActorsController : Controller
+    public class ActorsController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+
     }
 }
