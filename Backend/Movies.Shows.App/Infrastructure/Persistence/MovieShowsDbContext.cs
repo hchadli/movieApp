@@ -6,20 +6,21 @@ namespace Infrastructure.Persistence
 {
     public class MovieShowsDbContext : DbContext, IMovieShowsDbContext
     {
-        //public DbSet<Movie> Movies { get; set; }
         public DbSet<Actor> Actors => Set<Actor>();
-        //public DbSet<TvShow> TvShows { get; set; }
+        public DbSet<Media> Medias => Set<Media>();
+        public DbSet<Movie> Movies => Set<Movie>();
+        public DbSet<TvShow> TvShows => Set<TvShow>();
+        public DbSet<TvShowSeason> TvShowSeasons => Set<TvShowSeason>();
+        public DbSet<TvShowEpisode> TvShowEpisodes => Set<TvShowEpisode>();
 
         public MovieShowsDbContext(DbContextOptions options) : base(options)
         {
 
         }
 
-        
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
+            builder.Entity<TvShow>().HasMany(t => t.TvShowSeasons).WithOne(s => s.)
         }
     }
 }
