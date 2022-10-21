@@ -9,7 +9,6 @@
         public int TvShowSeasonId { get; set; }
         public TvShowSeason TvShowSeason { get; set; }
         public int EpisodeNumber { get; set; }
-        public DateTime ReleaseDate { get; set; }
         public ICollection<Actor> Actors { get; set; }
 
 

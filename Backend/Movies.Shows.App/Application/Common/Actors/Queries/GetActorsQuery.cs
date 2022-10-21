@@ -29,7 +29,6 @@ namespace Application.Common.Actors.Queries
                     Id = a.Id,
                     FirstName = a.FirstName,
                     LastName = a.LastName,
-                    BirthDate = a.BirthDate
                 }).ToListAsync(cancellationToken: cancellationToken);
         }
     }

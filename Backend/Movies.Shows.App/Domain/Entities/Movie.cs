@@ -8,7 +8,8 @@ namespace Domain.Entities
         public string Title { get; set; }
         public Genre Genres { get; set; }
         public string Description { get; set; }
-        public DateTime ReleaseDate { get; set; }
+        public string PictureUrl { get; set; }
         public ICollection<Actor> Actors { get; set; }
+
     }
 }

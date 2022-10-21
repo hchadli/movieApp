@@ -29,7 +29,6 @@ namespace Application.Common.Movies.Commands
             var test = new Movie
             {
                 Title = request.Title,
-                ReleaseDate = request.ReleaseDate,
                 Genres = request.Genres,
                 Description = request.Description,
 

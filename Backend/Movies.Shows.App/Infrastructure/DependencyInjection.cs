@@ -11,23 +11,10 @@ namespace Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-<<<<<<< Updated upstream
-
-            var connection = new SqliteConnection("DataSource=:memory:");
-            connection.Open();
-            services.AddDbContext<MovieShowsDbContext>(options =>
-            {
-                options.UseSqlite(connection);
-            });
 
             services.AddScoped<IMovieShowsDbContext>(collection => collection.GetRequiredService<MovieShowsDbContext>());
-
-
-=======
-
             services.AddScoped<IMovieShowsDbContext>(collection => collection.GetRequiredService<MovieShowsDbContext>());
 
->>>>>>> Stashed changes
             services.AddDbContext<MovieShowsDbContext>(opt =>
                 opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(MovieShowsDbContext).Assembly.FullName)));

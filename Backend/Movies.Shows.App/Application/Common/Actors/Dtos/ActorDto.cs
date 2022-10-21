@@ -10,7 +10,7 @@ namespace Api.Dto
             public int Id { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
-            public DateTime BirthDate { get; set; }
+
 
         }
         public class ActorDetail : ActorIndex
@@ -23,7 +23,6 @@ namespace Api.Dto
         {
             public string FirstName { get; set; }
             public string LastName { get; set; }
-            public DateTime BirthDate { get; set; }
         }
 
         public class Delete

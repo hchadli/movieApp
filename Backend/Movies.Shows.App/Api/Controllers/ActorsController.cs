@@ -24,12 +24,9 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<ActorDto.ActorDetail>> GetActorDetails([FromRoute] int id)
+        public async Task<ActorDto.ActorDetail> GetActorDetails(int id)
         {
-            var Movies = _mediator.Send(new GetActorsByIdQuery(id)
-            );
-            return Ok(Movies);
-
+            return await _mediator.Send(new GetActorsByIdQuery(id));
         }
 
 

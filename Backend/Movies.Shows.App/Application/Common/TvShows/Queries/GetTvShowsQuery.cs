@@ -36,11 +36,10 @@ namespace Application.Common.TvShows.Queries
                     Title = t.Title,
                     Genres = t.Genres,
                     Description = t.Description,
-                    ReleaseDate = t.ReleaseDate,
                     Actors = t.Actors.Select(a => new ActorDto.ActorIndex
                     {
                         Id = a.Id,
-                        BirthDate = a.BirthDate,
+                        
                         FirstName = a.FirstName,
                         LastName = a.LastName
                     }).ToList(),

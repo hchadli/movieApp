@@ -17,11 +17,9 @@ namespace Api.Controllers
             _mediator = mediator;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MovieDto.MovieIndex>>> GetMovies()
+        public async Task<IEnumerable<MovieDto.MovieIndex>> GetMovies()
         {
-            var Movies = _mediator.Send(new GetMoviesQuery()
-            );
-            return Ok(Movies);
+            return await _mediator.Send(new GetMoviesQuery());
         }
         [HttpGet("{id:int}")]
         public async Task<ActionResult<MovieDto.MovieDetail>> Get([FromRoute] int id)

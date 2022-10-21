@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Api.Dto;
+using Domain.Entities;
 
 namespace Application.Common.TvShows.Queries
 {
@@ -31,9 +33,14 @@ namespace Application.Common.TvShows.Queries
                {
                    Id = a.Id,
                    Title = a.Title,
-                   ReleaseDate = a.ReleaseDate,
                    Genres = a.Genres,
-                   Actors = a.Actors,
+                   Actors = a.Actors.Select(m => new ActorDto.ActorIndex()
+                   {
+                       FirstName = m.FirstName,
+                       LastName = m.LastName,  
+                       Id = m.Id,
+
+                   }).ToList(),
                    Description = a.Description
                }).ToListAsync(cancellationToken: cancellationToken);
         }

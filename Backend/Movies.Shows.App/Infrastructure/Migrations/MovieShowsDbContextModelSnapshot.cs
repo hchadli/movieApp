@@ -3,6 +3,7 @@ using System;
 using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -15,199 +16,172 @@ namespace Infrastructure.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "6.0.10")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("ActorMovie", b =>
                 {
                     b.Property<int>("ActorsId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("MoviesId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("ActorsId", "MoviesId");
 
                     b.HasIndex("MoviesId");
 
-                    b.ToTable("ActorMovie", (string)null);
+                    b.ToTable("ActorMovie");
                 });
 
             modelBuilder.Entity("ActorTvShow", b =>
                 {
                     b.Property<int>("ActorsId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("TvShowsId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("ActorsId", "TvShowsId");
 
                     b.HasIndex("TvShowsId");
 
-                    b.ToTable("ActorTvShow", (string)null);
+                    b.ToTable("ActorTvShow");
                 });
 
             modelBuilder.Entity("Domain.Entities.Actor", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
-<<<<<<< Updated upstream
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("DateTime");
-=======
-                    b.Property<string>("BirthDate")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
->>>>>>> Stashed changes
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("TvShowEpisodeId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TvShowEpisodeId");
 
-                    b.ToTable("Actors", (string)null);
+                    b.ToTable("Actors");
                 });
 
             modelBuilder.Entity("Domain.Entities.Movie", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Genres")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
-<<<<<<< Updated upstream
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("DateTime");
-=======
-                    b.Property<string>("ReleaseDate")
+                    b.Property<string>("PictureUrl")
                         .IsRequired()
-                        .HasColumnType("TEXT");
->>>>>>> Stashed changes
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies", (string)null);
+                    b.ToTable("Movies");
                 });
 
             modelBuilder.Entity("Domain.Entities.TvShow", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Genres")
-                        .HasColumnType("INTEGER");
-
-<<<<<<< Updated upstream
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("DateTime");
-=======
-                    b.Property<string>("ReleaseDate")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
->>>>>>> Stashed changes
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TvShows", (string)null);
+                    b.ToTable("TvShows");
                 });
 
             modelBuilder.Entity("Domain.Entities.TvShowEpisode", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EpisodeNumber")
-                        .HasColumnType("INTEGER");
-
-<<<<<<< Updated upstream
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("DateTime");
-=======
-                    b.Property<string>("ReleaseDate")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
->>>>>>> Stashed changes
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TvShowSeasonId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TvShowSeasonId");
 
-                    b.ToTable("TvShowEpisodes", (string)null);
+                    b.ToTable("TvShowEpisodes");
                 });
 
             modelBuilder.Entity("Domain.Entities.TvShowSeason", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("TEXT");
-
-<<<<<<< Updated upstream
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("DateTime");
-=======
-                    b.Property<string>("ReleaseDate")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
->>>>>>> Stashed changes
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SeasonNumber")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.Property<int>("TvShowId")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TvShowId");
 
-                    b.ToTable("TvShowSeasons", (string)null);
+                    b.ToTable("TvShowSeasons");
                 });
 
             modelBuilder.Entity("ActorMovie", b =>

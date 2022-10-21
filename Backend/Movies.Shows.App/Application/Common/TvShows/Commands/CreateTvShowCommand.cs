@@ -33,7 +33,6 @@ namespace Application.Common.TvShows.Commands
                 Title = request.title,
                 Description = request.description,
                 Genres = request.genres,
-                ReleaseDate = request.releaseDate
             };
 
             await _ctx.TvShows.AddAsync(tvShow);

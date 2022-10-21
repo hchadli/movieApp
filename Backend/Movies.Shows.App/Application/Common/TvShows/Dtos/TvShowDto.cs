@@ -12,7 +12,6 @@ namespace Application.Common.TvShows.Dtos
             public string Title { get; set; }
             public Genre Genres { get; set; }
             public string Description { get; set; }
-            public DateTime ReleaseDate { get; set; }
             public ICollection<ActorDto.ActorIndex> Actors { get; set; }
             public ICollection<TvShowSeason> TvShowSeasons { get; set; }
         }

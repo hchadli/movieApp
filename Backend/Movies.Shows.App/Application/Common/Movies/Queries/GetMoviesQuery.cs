@@ -7,8 +7,6 @@ namespace Application.Common.Movies.Queries
 {
     public record GetMoviesQuery : IRequest<IEnumerable<MovieDto.MovieIndex>>;
 
-
-
     public class GetMoviesQueryHandler : IRequestHandler<GetMoviesQuery, IEnumerable<MovieDto.MovieIndex>>
     {
 
@@ -21,18 +19,17 @@ namespace Application.Common.Movies.Queries
         public async Task<IEnumerable<MovieDto.MovieIndex>> Handle(GetMoviesQuery request, CancellationToken cancellationToken)
         {
             return await _dbContext.Movies
-               .Select(a => new MovieDto.MovieIndex()
+                .Include(m => m.Actors)
+                .Select(a => new MovieDto.MovieIndex()
                {
                    Id = a.Id,
                    Title = a.Title,
-                   ReleaseDate = a.ReleaseDate,
+                   // ReleaseDate = a.ReleaseDate,
                    Genres = a.Genres,
                    Actors = a.Actors,
                    Description = a.Description
 
-
-
-               }).ToListAsync(cancellationToken: cancellationToken);
+               }).ToListAsync();
         }
     }
 }
