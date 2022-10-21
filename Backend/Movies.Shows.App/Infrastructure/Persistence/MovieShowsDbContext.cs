@@ -1,13 +1,15 @@
 ﻿using Application.Common.Interfaces;
 using Domain.Entities;
+using Domain.Enum;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System.Linq;
 
 namespace Infrastructure.Persistence
 {
     public class MovieShowsDbContext : DbContext, IMovieShowsDbContext
     {
         public DbSet<Actor> Actors => Set<Actor>();
-        public DbSet<Media> Medias => Set<Media>();
         public DbSet<Movie> Movies => Set<Movie>();
         public DbSet<TvShow> TvShows => Set<TvShow>();
         public DbSet<TvShowSeason> TvShowSeasons => Set<TvShowSeason>();
@@ -33,8 +35,20 @@ namespace Infrastructure.Persistence
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Actor>()
-                .HasMany(a => a.Media)
+                .HasMany(a => a.Movies)
                 .WithMany(m => m.Actors);
+
+            builder.Entity<Actor>()
+                .HasMany(a => a.TvShows)
+                .WithMany(m => m.Actors);
+
+            builder.Entity<Movie>()
+                .Property(m => m.Genres)
+                .HasConversion(new EnumToNumberConverter<Genre, int>());
+
+            builder.Entity<TvShow>()
+                .Property(m => m.Genres)
+                .HasConversion(new EnumToNumberConverter<Genre, int>());
         }
     }
 }

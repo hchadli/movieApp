@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Application.Common.Movies.Queries
 {
-    public class GetMoviesQuery :
+    public class GetMoviesQuery
     {
     }
 }
