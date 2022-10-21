@@ -25,7 +25,7 @@ namespace Application.Common.Movies.Queries
                {
                    Id = a.Id,
                    Title = a.Title,
-                   // ReleaseDate = a.ReleaseDate,
+                   PictureUrl = a.PictureUrl,
                    Genres = a.Genres,
                    Actors = a.Actors,
                    Description = a.Description
