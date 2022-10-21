@@ -20,7 +20,6 @@
     <Folder Include="Common\Interfaces\TvShows\" />
     <Folder Include="Common\Movies\Dtos\" />
     <Folder Include="Common\Actors\Queries\" />
-    <Folder Include="Common\Movies\Commands\" />
   </ItemGroup>
 
 </Project>
