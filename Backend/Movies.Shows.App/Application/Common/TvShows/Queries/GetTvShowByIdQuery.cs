@@ -26,9 +26,9 @@ namespace Application.Common.TvShows.Queries
             _dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<TvShowDto.TvShowDetail>> Handle(GetTvShowByIdQuery request, CancellationToken cancellationToken)
+        public async Task<TvShowDto.TvShowDetail> Handle(GetTvShowByIdQuery request, CancellationToken cancellationToken)
         {
-            return await _dbContext.TvShows
+            return await _dbContext.TvShows.FirstOrDefault(t => t.Id == request.id)
                .Select(a => new TvShowDto.TvShowDetail()
                {
                    Id = a.Id,
@@ -37,12 +37,12 @@ namespace Application.Common.TvShows.Queries
                    Actors = a.Actors.Select(m => new ActorDto.ActorIndex()
                    {
                        FirstName = m.FirstName,
-                       LastName = m.LastName,  
+                       LastName = m.LastName,
                        Id = m.Id,
 
                    }).ToList(),
                    Description = a.Description
-               }).ToListAsync(cancellationToken: cancellationToken);
+               });
         }
     }
 }

@@ -25,10 +25,9 @@ namespace Api.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<TvShowDto.TvShowDetail>> GetTvShowById([FromRoute] int id)
+        public async Task<TvShowDto.TvShowDetail> GetTvShowById([FromRoute] int id)
         {
-            var tvShows = _mediator.Send(new GetTvShowByIdQuery(id));
-            return Ok(tvShows);
+            return await _mediator.Send(new GetTvShowByIdQuery(id));
         }
 
         [HttpPost]
