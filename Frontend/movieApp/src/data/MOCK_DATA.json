@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "title": "Crimes Against Humanity",
+    "author": "Wayland Tomaskunas",
+    "rates": 8
+  },
+  {
+    "id": 2,
+    "title": "Beyond Enemy Lines (Framom främsta linjen)",
+    "author": "Amanda Farncombe",
+    "rates": 4
+  },
+  {
+    "id": 3,
+    "title": "Wrong Is Right (a.k.a. The Man With the Deadly Lens)",
+    "author": "Basile O'Donnell",
+    "rates": 3
+  },
+  {
+    "id": 4,
+    "title": "Predestination",
+    "author": "Claudius Szymanowski",
+    "rates": 9
+  },
+  {
+    "id": 5,
+    "title": "Whatever Works",
+    "author": "Rosana Becket",
+    "rates": 10
+  },
+  { "id": 6, "title": "Zelary", "author": "Juieta Demonge", "rates": 6 },
+  { "id": 7, "title": "Liz & Dick ", "author": "Wynne Sadd", "rates": 8 },
+  { "id": 8, "title": "Brain, The", "author": "Fletch Kapelhof", "rates": 2 },
+  { "id": 9, "title": "Casanova", "author": "Brooks Geleman", "rates": 5 },
+  {
+    "id": 10,
+    "title": "Heart of America",
+    "author": "Jory Aubery",
+    "rates": 4
+  },
+  {
+    "id": 11,
+    "title": "Young Black Stallion, The",
+    "author": "Nettie Berrey",
+    "rates": 10
+  },
+  {
+    "id": 12,
+    "title": "Man, Woman and the Wall (Kikareta onna no mirareta yoru)",
+    "author": "Mikol MacKilroe",
+    "rates": 6
+  },
+  {
+    "id": 13,
+    "title": "Best of the Best 3: No Turning Back",
+    "author": "Delila Gritton",
+    "rates": 9
+  },
+  {
+    "id": 46,
+    "title": "Execution Squad",
+    "author": "Rhonda Asplin",
+    "rates": 1
+  },
+  { "id": 47, "title": "Inseparable", "author": "Con Steptowe", "rates": 5 },
+  { "id": 48, "title": "Entity", "author": "Lindie Kohrs", "rates": 5 },
+  {
+    "id": 49,
+    "title": "Continental Divide",
+    "author": "Deonne Slite",
+    "rates": 6
+  },
+  {
+    "id": 50,
+    "title": "Time Machine, The",
+    "author": "Whittaker Doles",
+    "rates": 3
+  }
+]
