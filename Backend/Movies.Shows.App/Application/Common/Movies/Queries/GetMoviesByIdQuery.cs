@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Common.Movies.Queries
 {
-    public record GetMoviesByIdQuery(int id) : IRequest<IEnumerable<MovieDto.Detail>>;
+    public record GetMoviesByIdQuery(int id) : IRequest<IEnumerable<MovieDto.MovieDetail>>;
 
 
 
-    public class GetMoviesByIdQueryHandler : IRequestHandler<GetMoviesByIdQuery, IEnumerable<MovieDto.Detail>>
+    public class GetMoviesByIdQueryHandler : IRequestHandler<GetMoviesByIdQuery, IEnumerable<MovieDto.MovieDetail>>
     {
 
         private readonly IMovieShowsDbContext _dbContext;
@@ -18,10 +18,10 @@ namespace Application.Common.Movies.Queries
             _dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<MovieDto.Detail>> Handle(GetMoviesByIdQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<MovieDto.MovieDetail>> Handle(GetMoviesByIdQuery request, CancellationToken cancellationToken)
         {
             return await _dbContext.Movies
-               .Select(a => new MovieDto.Detail()
+               .Select(a => new MovieDto.MovieDetail()
                {
                    Id = a.Id,
                    Title = a.Title,
