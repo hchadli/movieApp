@@ -1,4 +1,6 @@
-﻿using Api.Dto;
+﻿using System.Diagnostics.CodeAnalysis;
+using Api.Dto;
+using Application.Common.Actors.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,7 +10,7 @@ namespace Api.Controllers
     [ApiController]
     public class ActorsController : ControllerBase
     {
-        public IMediator _mediator;
+        public readonly IMediator _mediator;
 
         public ActorsController(IMediator mediator)
         {
@@ -17,13 +19,9 @@ namespace Api.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ActorDto.Index>>> GetActors()
+        public async Task<IEnumerable<ActorDto.Index>> GetActors()
         {
-            var Movies = _mediator.Send(new
-            {
-
-            });
-            return Ok();
+            return await _mediator.Send(new GetActorsQuery());
         }
     }
 }

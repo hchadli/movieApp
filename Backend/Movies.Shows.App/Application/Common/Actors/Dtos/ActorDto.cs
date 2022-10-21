@@ -1,4 +1,5 @@
 ﻿using Application.Common.Movies.Dtos;
+using Application.Common.TvShows.Dtos;
 
 namespace Api.Dto
 {

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="11.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
   </ItemGroup>
 
@@ -17,10 +18,10 @@
 
   <ItemGroup>
     <Folder Include="Common\Actors\Commands\" />
-    <Folder Include="Common\Interfaces\TvShows\" />
     <Folder Include="Common\Movies\Dtos\" />
     <Folder Include="Common\Actors\Queries\" />
     <Folder Include="Common\Movies\Commands\" />
+    <Folder Include="Common\TvShows\Commands\" />
   </ItemGroup>
 
 </Project>
