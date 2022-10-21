@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Api.Dto;
+using Domain.Entities;
 using Domain.Enum;
 
 namespace Application.Common.TvShows.Dtos
@@ -12,7 +13,7 @@ namespace Application.Common.TvShows.Dtos
             public Genre Genres { get; set; }
             public string Description { get; set; }
             public DateTime ReleaseDate { get; set; }
-            public ICollection<Actor> Actors { get; set; }
+            public ICollection<ActorDto.ActorIndex> Actors { get; set; }
             public ICollection<TvShowSeason> TvShowSeasons { get; set; }
         }
         public class TvShowDetail : TvShowIndex

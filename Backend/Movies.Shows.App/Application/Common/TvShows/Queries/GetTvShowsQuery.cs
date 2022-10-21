@@ -29,6 +29,7 @@ namespace Application.Common.TvShows.Queries
             return await _dbContext.TvShows
                 .Include(t => t.Actors)
                 .Include(t => t.TvShowSeasons)
+                .ThenInclude(s => s.TvShowEpisodes)
                 .Select(t => new TvShowDto.TvShowIndex()
                 {
                     Id = t.Id,
@@ -36,7 +37,13 @@ namespace Application.Common.TvShows.Queries
                     Genres = t.Genres,
                     Description = t.Description,
                     ReleaseDate = t.ReleaseDate,
-                    Actors = t.Actors,
+                    Actors = t.Actors.Select(a => new ActorDto.ActorIndex
+                    {
+                        Id = a.Id,
+                        BirthDate = a.BirthDate,
+                        FirstName = a.FirstName,
+                        LastName = a.LastName
+                    }).ToList(),
                     TvShowSeasons = t.TvShowSeasons
 
                 }).ToListAsync(cancellationToken: cancellationToken);

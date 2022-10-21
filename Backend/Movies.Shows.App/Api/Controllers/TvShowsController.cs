@@ -19,13 +19,13 @@ namespace Api.Controllers
 
 
         [HttpGet]
-        public async Task<IEnumerable<TvShowDto.TvShowIndex>> GetActors()
+        public async Task<IEnumerable<TvShowDto.TvShowIndex>> GetTvShows()
         {
             return await _mediator.Send(new GetTvShowsQuery());
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<TvShowDto.TvShowDetail>> Get([FromRoute] int id)
+        public async Task<ActionResult<TvShowDto.TvShowDetail>> GetTvShowById([FromRoute] int id)
         {
             var tvShows = _mediator.Send(new GetTvShowByIdQuery(id));
             return Ok(tvShows);
