@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Interfaces\Commands\" />
+    <Folder Include="Common\Commands\" />
     <Folder Include="Common\Interfaces\TvShows\" />
     <Folder Include="Common\Queries\Movies\Dtos\" />
   </ItemGroup>
