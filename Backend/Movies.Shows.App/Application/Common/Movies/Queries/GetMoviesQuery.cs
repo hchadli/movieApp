@@ -5,9 +5,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Common.Queries.Movies
+namespace Application.Common.Movies.Queries
 {
-    public  class GetMoviesQuery : 
+    public class GetMoviesQuery :
     {
     }
 }
