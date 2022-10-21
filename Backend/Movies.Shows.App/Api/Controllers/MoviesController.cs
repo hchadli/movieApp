@@ -1,4 +1,5 @@
 ﻿using Application.Common.Movies.Dtos;
+using Application.Common.Movies.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,13 +16,11 @@ namespace Api.Controllers
             _mediator = mediator;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MovieDto.Index>>> Get()
+        public async Task<ActionResult<IEnumerable<MovieDto.Index>>> GetMovies()
         {
-            var Movies = _mediator.Send(new GetMoviesQuery
-            {
-
-            })
-            return Ok(dtos);
+            var Movies = _mediator.Send(new GetMoviesQuery()
+            );
+            return Ok();
         }
 
         //return await todoService.GetTodosAsync(status);

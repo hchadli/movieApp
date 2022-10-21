@@ -22,8 +22,8 @@ namespace Api.Controllers
             var Movies = _mediator.Send(new
             {
 
-            })
-            return Ok(dtos);
+            });
+            return Ok();
         }
     }
 }
