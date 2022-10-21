@@ -1,5 +1,4 @@
-﻿using Api.Dto;
-
+﻿using Application.Common.Movies.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

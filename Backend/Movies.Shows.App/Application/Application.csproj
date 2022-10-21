@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="Common\Actors\Commands\" />
     <Folder Include="Common\Interfaces\TvShows\" />
-    <Folder Include="Common\Movies\Dtos\" />
     <Folder Include="Common\Actors\Queries\" />
   </ItemGroup>
 

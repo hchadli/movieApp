@@ -1,5 +1,4 @@
-﻿using Api.Dto;
-using MediatR;
+﻿using MediatR;
 
 namespace Application.Common.Movies.Commands
 {
