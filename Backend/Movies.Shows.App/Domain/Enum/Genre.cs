@@ -9,6 +9,5 @@
         COMEDY,
         SCIFI,
         HORROR,
-
     }
 }

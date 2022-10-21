@@ -20,7 +20,21 @@ namespace Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<TvShow>().HasMany(t => t.TvShowSeasons).WithOne(s => s.)
+            builder.Entity<TvShow>()
+                .HasMany(t => t.TvShowSeasons)
+                .WithOne(s => s.TvShow)
+                .HasForeignKey(s => s.TvShowId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<TvShowSeason>()
+                .HasMany(s => s.TvShowEpisodes)
+                .WithOne(e => e.TvShowSeason)
+                .HasForeignKey(e => e.TvShowSeasonId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<Actor>()
+                .HasMany(a => a.Media)
+                .WithMany(m => m.Actors);
         }
     }
 }
