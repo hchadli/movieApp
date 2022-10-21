@@ -13,9 +13,9 @@ using Domain.Entities;
 
 namespace Application.Common.TvShows.Queries
 {
-    public record GetTvShowByIdQuery(int id) : IRequest<IEnumerable<TvShowDto.TvShowDetail>>;
+    public record GetTvShowByIdQuery(int id) : IRequest<TvShowDto.TvShowDetail>;
 
-    public class GetTvShowByIdQueryHandler : IRequestHandler<GetTvShowByIdQuery, IEnumerable<TvShowDto.TvShowDetail>>
+    public class GetTvShowByIdQueryHandler : IRequestHandler<GetTvShowByIdQuery, TvShowDto.TvShowDetail>
     {
 
 
