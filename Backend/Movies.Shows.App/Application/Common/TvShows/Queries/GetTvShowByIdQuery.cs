@@ -28,7 +28,7 @@ namespace Application.Common.TvShows.Queries
 
         public async Task<TvShowDto.TvShowDetail> Handle(GetTvShowByIdQuery request, CancellationToken cancellationToken)
         {
-            return await _dbContext.TvShows.FirstOrDefault(t => t.Id == request.id)
+            return await _dbContext.TvShows
                .Select(a => new TvShowDto.TvShowDetail()
                {
                    Id = a.Id,
@@ -42,7 +42,7 @@ namespace Application.Common.TvShows.Queries
 
                    }).ToList(),
                    Description = a.Description
-               });
+               }).FirstAsync(t => t.Id == request.id);
         }
     }
 }
