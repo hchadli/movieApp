@@ -15,12 +15,12 @@ namespace Application.Common.Movies.Dtos
             public ICollection<Actor> Actors { get; set; }
 
         }
-        public class Detail : MovieIndex
+        public class MovieDetail : MovieIndex
         {
 
         }
 
-        public class Create
+        public class MovieCreate
         {
             public int Id { get; set; }
             public string Title { get; set; }

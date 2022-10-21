@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces;
 using Infrastructure.Persistence;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +11,7 @@ namespace Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-<<<<<<< Updated upstream
+
             var connection = new SqliteConnection("DataSource=:memory:");
             connection.Open();
             services.AddDbContext<MovieShowsDbContext>(options =>
@@ -26,11 +21,11 @@ namespace Infrastructure
 
             services.AddScoped<IMovieShowsDbContext>(collection => collection.GetRequiredService<MovieShowsDbContext>());
 
-=======
+
             services.AddDbContext<MovieShowsDbContext>(opt =>
                 opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                     b => b.MigrationsAssembly(typeof(MovieShowsDbContext).Assembly.FullName)));
->>>>>>> Stashed changes
+
             return services;
         }
     }
