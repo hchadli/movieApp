@@ -1,6 +1,6 @@
 ﻿namespace Domain.Entities
 {
-    public class TvShow
+    public class TvShow : Media
     {
 
         public ICollection<TvShowSeason> TvShowSeasons { get; set; }
