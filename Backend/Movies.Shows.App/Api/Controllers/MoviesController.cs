@@ -20,7 +20,15 @@ namespace Api.Controllers
         {
             var Movies = _mediator.Send(new GetMoviesQuery()
             );
-            return Ok();
+            return Ok(Movies);
+        }
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<MovieDto.Detail>> Get([FromRoute] int id)
+        {
+            var Movies = _mediator.Send(new GetMoviesByIdQuery(id)
+            );
+            return Ok(Movies);
+
         }
 
         //return await todoService.GetTodosAsync(status);
