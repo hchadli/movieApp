@@ -5,7 +5,7 @@ namespace Application.Common.TvShows.Dtos
 {
     public class TvShowDto
     {
-        public class Index
+        public class TvShowIndex
         {
             public int Id { get; set; }
             public string Title { get; set; }
@@ -15,17 +15,17 @@ namespace Application.Common.TvShows.Dtos
             public ICollection<Actor> Actors { get; set; }
             public ICollection<TvShowSeason> TvShowSeasons { get; set; }
         }
-        public class Detail : Index
+        public class TvShowDetail : TvShowIndex
         {
 
         }
 
-        public class Create
+        public class TvShowCreate
         {
 
         }
 
-        public class Delete
+        public class TvShowDelete
         {
 
         }

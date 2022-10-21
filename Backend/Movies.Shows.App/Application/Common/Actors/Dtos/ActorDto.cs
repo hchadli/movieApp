@@ -17,7 +17,7 @@ namespace Api.Dto
         public class Detail : ActorIndex
         {
             public ICollection<MovieDto.MovieIndex> Movies { get; set; }
-            public ICollection<TvShowDto.Index> TvShows { get; set; }
+            public ICollection<TvShowDto.TvShowIndex> TvShows { get; set; }
         }
 
         public class Create

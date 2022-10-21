@@ -12,9 +12,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Common.TvShows.Queries
 {
-    public record GetTvShowsQuery : IRequest<IEnumerable<TvShowDto.Index>>;
+    public record GetTvShowsQuery : IRequest<IEnumerable<TvShowDto.TvShowIndex>>;
 
-    public class GetTvShowsQueryHandler : IRequestHandler<GetTvShowsQuery, IEnumerable<TvShowDto.Index>>
+    public class GetTvShowsQueryHandler : IRequestHandler<GetTvShowsQuery, IEnumerable<TvShowDto.TvShowIndex>>
     {
         private readonly IMovieShowsDbContext _dbContext;
 
@@ -23,13 +23,13 @@ namespace Application.Common.TvShows.Queries
             _dbContext = dbContext;
         }
 
-        public async Task<IEnumerable<TvShowDto.Index>> Handle(GetTvShowsQuery request,
+        public async Task<IEnumerable<TvShowDto.TvShowIndex>> Handle(GetTvShowsQuery request,
             CancellationToken cancellationToken)
         {
             return await _dbContext.TvShows
                 .Include(t => t.Actors)
                 .Include(t => t.TvShowSeasons)
-                .Select(t => new TvShowDto.Index()
+                .Select(t => new TvShowDto.TvShowIndex()
                 {
                     Id = t.Id,
                     Title = t.Title,

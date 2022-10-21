@@ -21,7 +21,6 @@
     <Folder Include="Common\Movies\Dtos\" />
     <Folder Include="Common\Actors\Queries\" />
     <Folder Include="Common\Movies\Commands\" />
-    <Folder Include="Common\TvShows\Commands\" />
   </ItemGroup>
 
 </Project>

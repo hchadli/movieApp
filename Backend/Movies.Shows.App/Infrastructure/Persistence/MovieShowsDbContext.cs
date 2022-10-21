@@ -42,6 +42,26 @@ namespace Infrastructure.Persistence
                 .HasMany(a => a.TvShows)
                 .WithMany(m => m.Actors);
 
+            builder.Entity<Actor>()
+                .Property(a => a.BirthDate)
+                .HasColumnType("DateTime");
+
+            builder.Entity<Movie>()
+                .Property(a => a.ReleaseDate)
+                .HasColumnType("DateTime");
+
+            builder.Entity<TvShow>()
+                .Property(a => a.ReleaseDate)
+                .HasColumnType("DateTime");
+
+            builder.Entity<TvShowSeason>()
+                .Property(a => a.ReleaseDate)
+                .HasColumnType("DateTime");
+
+            builder.Entity<TvShowEpisode>()
+                .Property(a => a.ReleaseDate)
+                .HasColumnType("DateTime");
+
             builder.Entity<Movie>()
                 .Property(m => m.Genres)
                 .HasConversion(new EnumToNumberConverter<Genre, int>());
