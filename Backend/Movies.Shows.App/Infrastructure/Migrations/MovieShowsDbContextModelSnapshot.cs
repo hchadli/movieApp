@@ -29,7 +29,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("MoviesId");
 
-                    b.ToTable("ActorMovie");
+                    b.ToTable("ActorMovie", (string)null);
                 });
 
             modelBuilder.Entity("ActorTvShow", b =>
@@ -44,7 +44,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("TvShowsId");
 
-                    b.ToTable("ActorTvShow");
+                    b.ToTable("ActorTvShow", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Actor", b =>
@@ -53,8 +53,14 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+<<<<<<< Updated upstream
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("DateTime");
+=======
+                    b.Property<string>("BirthDate")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+>>>>>>> Stashed changes
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -71,7 +77,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("TvShowEpisodeId");
 
-                    b.ToTable("Actors");
+                    b.ToTable("Actors", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Movie", b =>
@@ -87,8 +93,14 @@ namespace Infrastructure.Migrations
                     b.Property<int>("Genres")
                         .HasColumnType("INTEGER");
 
+<<<<<<< Updated upstream
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("DateTime");
+=======
+                    b.Property<string>("ReleaseDate")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+>>>>>>> Stashed changes
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -96,7 +108,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movies", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.TvShow", b =>
@@ -112,8 +124,14 @@ namespace Infrastructure.Migrations
                     b.Property<int>("Genres")
                         .HasColumnType("INTEGER");
 
+<<<<<<< Updated upstream
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("DateTime");
+=======
+                    b.Property<string>("ReleaseDate")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+>>>>>>> Stashed changes
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -121,7 +139,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TvShows");
+                    b.ToTable("TvShows", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.TvShowEpisode", b =>
@@ -137,8 +155,14 @@ namespace Infrastructure.Migrations
                     b.Property<int>("EpisodeNumber")
                         .HasColumnType("INTEGER");
 
+<<<<<<< Updated upstream
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("DateTime");
+=======
+                    b.Property<string>("ReleaseDate")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+>>>>>>> Stashed changes
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -151,7 +175,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("TvShowSeasonId");
 
-                    b.ToTable("TvShowEpisodes");
+                    b.ToTable("TvShowEpisodes", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.TvShowSeason", b =>
@@ -164,8 +188,14 @@ namespace Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+<<<<<<< Updated upstream
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("DateTime");
+=======
+                    b.Property<string>("ReleaseDate")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+>>>>>>> Stashed changes
 
                     b.Property<int>("SeasonNumber")
                         .HasColumnType("INTEGER");
@@ -177,7 +207,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("TvShowId");
 
-                    b.ToTable("TvShowSeasons");
+                    b.ToTable("TvShowSeasons", (string)null);
                 });
 
             modelBuilder.Entity("ActorMovie", b =>
