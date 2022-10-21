@@ -3,12 +3,12 @@
     [Flags]
     public enum Genre
     {
-        ACTION = 0,
-        ROMANCE = 1,
-        THRILLER = 2,
-        SPORTS = 4,
-        COMEDY = 8,
-        SCIFI = 16,
-        HORROR = 32,
+        ACTION = 1,
+        ROMANCE = 2,
+        THRILLER = 4,
+        SPORTS = 8,
+        COMEDY = 16,
+        SCIFI = 32,
+        HORROR = 64,
     }
 }
