@@ -9,7 +9,7 @@ namespace Application.Common.TvShows.Dtos
         {
             public int Id { get; set; }
             public string Title { get; set; }
-            public ICollection<Genre> Genres { get; set; }  
+            public Genre Genres { get; set; }
             public string Description { get; set; }
             public DateTime ReleaseDate { get; set; }
             public ICollection<Actor> Actors { get; set; }
