@@ -1,4 +1,4 @@
-﻿namespace Api.Dto
+﻿namespace Application.Common.Movies.Dtos
 {
     public class MovieDto
     {

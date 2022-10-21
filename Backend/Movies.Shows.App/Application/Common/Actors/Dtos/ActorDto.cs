@@ -1,4 +1,6 @@
-﻿namespace Api.Dto
+﻿using Application.Common.Movies.Dtos;
+
+namespace Api.Dto
 {
     public class ActorDto
     {
@@ -13,7 +15,8 @@
         }
         public class Detail : Index
         {
-            public ICollection<MediaDto> Media { get; set; }
+            public ICollection<MovieDto.Index> Movies { get; set; }
+            public ICollection<TvShowDto.Index> TvShows { get; set; }
         }
 
         public class Create
