@@ -1,4 +1,4 @@
-﻿namespace Api.Dto
+﻿namespace Application.Common.TvShows.Dtos
 {
     public class TvShowDto
     {
