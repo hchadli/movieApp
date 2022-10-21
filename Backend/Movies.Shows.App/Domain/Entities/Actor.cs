@@ -6,12 +6,12 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
-        public ICollection<Movie> Movies { get; set; }
-        public ICollection<TvShow> TvShows { get; set; }
+        public ICollection<Media> Media { get; set; }
+
 
         public Actor()
         {
-            Movies = new List<Movie>();
+            Media = new List<Media>();
         }
     }
 }
